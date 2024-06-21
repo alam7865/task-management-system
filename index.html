@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Management System</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="main_container">
+      <div class="nav_container">
+        <div class="logo">
+          <img
+            src="https://raw.githubusercontent.com/alam3577/new-quiz/master/src/Assets/Images/logo.png"
+          />
+          <span>Todo App</span>
+        </div>
+        <div class="nav_items">
+          <input type="text" id="search" placeholder="Search" />
+          <img src="./assets/images/filterImg.png" />
+        </div>
+      </div>
+
+      <div id="content_container"></div>
+      <div class="module_wraper">
+        <div id="module_container">
+          <div class="closeBtn1">
+            <span class="closeBtn1">&times</span>
+          </div>
+          <input id="input" placeholder="title" />
+          <textarea
+            name="description"
+            id="description"
+            placeholder="Description"
+          ></textarea>
+          <input id="date_time" type="date" ,type="time" />
+          <div class="add_item_btn">
+            <button>Add Task</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- //edit  -->
+
+      <div class="module_wraper_edit">
+        <div id="module_container_edit">
+          <div class="closeBtn_edit">
+            <span class="closeBtn1_edit">&times</span>
+          </div>
+          <input id="input_edit" placeholder="Title_Edit" />
+          <textarea
+            name="description_edit"
+            id="description_edit"
+            placeholder="Description_Edit"
+          ></textarea>
+          <input id="date_time_edit" type="date" />
+          <div class="add_item_btn_edit">
+            <button>Update</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="add_item_main">
+        <button>Add Task</button>
+      </div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
