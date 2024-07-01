@@ -6,7 +6,6 @@ let arr = [
     status: "pending",
     date: "2024-06-22",
   },
-
   {
     id: 2,
     title: "task 2",
@@ -14,7 +13,6 @@ let arr = [
     status: "completed",
     date: "2024-06-22",
   },
-
   {
     id: 3,
     title: "task 3",
@@ -22,7 +20,6 @@ let arr = [
     status: "rejected",
     date: "2024-06-22",
   },
-
   {
     id: 4,
     title: "task 4",
@@ -30,7 +27,6 @@ let arr = [
     status: "upcoming",
     date: "2024-06-22",
   },
-
   {
     id: 5,
     title: "task 5",
@@ -38,7 +34,6 @@ let arr = [
     status: "completed",
     date: "2024-06-22",
   },
-
   {
     id: 6,
     title: "task 6",
@@ -46,7 +41,6 @@ let arr = [
     status: "upcoming",
     date: "2024-06-22",
   },
-
   {
     id: 7,
     title: "task 7",
@@ -54,7 +48,6 @@ let arr = [
     status: "completed",
     date: "2024-06-22",
   },
-
   {
     id: 8,
     title: "task 8",
@@ -62,7 +55,6 @@ let arr = [
     status: "completed",
     date: "2024-06-22",
   },
-
   {
     id: 9,
     title: "task 9",
@@ -70,7 +62,6 @@ let arr = [
     status: "pending",
     date: "2024-06-22",
   },
-
   {
     id: 10,
     title: "task 10",
@@ -85,7 +76,7 @@ function HTMLTemplate(el) {
   return `<div class="box ${el.status}">
   <div class="header">
   <p>${el.status}</p>
-  <p >${el.date}</p>
+  <p>${el.date}</p>
   </div>
 
   <div name="edit1" class="subheader">
@@ -124,7 +115,12 @@ let modalBox = document.querySelector(".module_wraper");
 let moduleContainer = document.getElementById("module_container");
 let btnClose = document.querySelector(".closeBtn1");
 let add_item_main = document.getElementById("add_item_main");
-
+let empty_Box = document.querySelector(".empty_Box");
+let rightShowBox = document.querySelector(".right_side_box");
+// let rightShowBoxButton = document.querySelector(".right_side_boxs");
+let filterButton = document.querySelector(".fa-solid");
+let closeRightBox = document.querySelector(".closeRightBox");
+let closeBox = document.querySelector(".closeBox");
 ////////////////////////////////////////////////
 // for add task
 let input = document.getElementById("input");
@@ -145,6 +141,11 @@ let id_edit = document.getElementById("id_edit");
 let add_item_btn_edit = document.querySelector(".add_item_btn_edit");
 //create table
 function showData(arr) {
+  let len = arr.length;
+  if (len == 0) {
+    empty_Box.classList.add("showBox");
+    // return;
+  }
   let template = "";
   arr.forEach((el) => {
     template += HTMLTemplate(el);
@@ -270,6 +271,11 @@ add_item_btn.addEventListener("click", function (e) {
   let title = input.value;
   let description1 = description.value;
   let date = date_time.value;
+  if (title === "" || description1 === "" || date === "") {
+    alert("Please Fill the empty boxes");
+    return;
+  }
+
   let newTask = {
     id: new Date().getTime(),
     title: title,
@@ -322,9 +328,54 @@ function closeModalWrapper() {
 }
 
 function AddListItem() {
+  // if array Length is Empty
+  if (arr.length == 0) {
+    // console.log("Hello sabaz Alam Bhai");
+    empty_Box.classList.remove("showBox");
+  }
   showModalWrapper();
 }
 
 add_item_main.addEventListener("click", AddListItem);
 
 btnClose.addEventListener("click", closeModalWrapper);
+
+filterButton.addEventListener("click", function () {
+  rightShowBox.classList.add("show_left");
+  // console.log("Hello");
+});
+
+// right side fox
+rightShowBox.addEventListener("click", function (e) {
+  let text = e.target.innerText;
+  // let arr1 = arr;
+  // completed
+  if (text === "Completed") {
+    let output = arr.filter((elem) => elem.status === "completed");
+    showData(output);
+  }
+
+  //rejected
+  if (text === "Rejected") {
+    let output = arr.filter((elem) => elem.status === "rejected");
+    showData(output);
+  }
+
+  // pending
+  if (text === "Pending") {
+    let output = arr.filter((elem) => elem.status === "pending");
+    showData(output);
+  }
+
+  // upcoming
+  if (text === "Upcoming") {
+    let output = arr.filter((elem) => elem.status === "upcoming");
+    showData(output);
+  }
+});
+
+// close right box
+closeBox.addEventListener("click", function () {
+  console.log("hello sabaz");
+  rightShowBox.classList.remove("show_left");
+});

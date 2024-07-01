@@ -118,6 +118,29 @@
   padding: 10px;
 }
 
+.empty_Box {
+  width: 500px;
+  height: 25%;
+  border: 2px solid rgba(236, 225, 225, 0.742);
+  border-radius: 9px 7px;
+  position: absolute;
+  top: 25%;
+  left: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bolder;
+  color: tomato;
+  font-size: 2.3rem;
+  display: none;
+}
+
+.showBox {
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 #module_container textarea {
   resize: none;
 }
@@ -130,6 +153,33 @@
   gap: 12px;
 } */
 
+.right_side_box {
+  width: 13rem;
+  padding: 1.1rem;
+  gap: 1.1rem;
+  border: 2px solid rgba(236, 225, 225, 0.742);
+  border-radius: 9px 7px;
+  position: absolute;
+  top: 15%;
+  right: 1%;
+  display: flex;
+  flex-direction: column;
+  background-color: #c5b6b6;
+  display: none;
+}
+
+.right_side_box button {
+  padding: 0.5rem;
+  cursor: pointer;
+  background-color: #e6e6e6;
+  border: none;
+  border-radius: 4px 6px;
+  font-weight: 700;
+  color: rgb(95, 8, 12);
+}
+.right_side_box button:hover {
+  color: rgb(68, 68, 184);
+}
 .add_item_btn {
   padding: 2px;
   border-radius: 4px 2px;
@@ -150,6 +200,7 @@
 }
 
 .closeBtn1 span,
+.closeBox,
 .closeBtn1_edit span {
   display: flex;
   justify-content: flex-end;
@@ -157,6 +208,7 @@
   cursor: pointer;
 }
 .closeBtn1 span:hover,
+.closeBox:hover,
 .closeBtn1_edit span:hover {
   color: red;
 }
@@ -181,6 +233,24 @@
   padding-top: 1.2rem;
 }
 
+.fa-filter {
+  font-size: 1.6rem;
+  content: "\f0b0";
+  padding: 12px;
+}
+
+/* .fa-filter:hover {
+  cursor: pointer;
+  color: #009dd9;
+} */
+
+/* .fa-filter:hover {
+  color: rgb(61, 61, 197);
+} */
+i:hover {
+  color: #1159c6;
+  cursor: pointer;
+}
 .button {
   padding-top: 1.2rem;
   /* border: none; */
@@ -272,4 +342,17 @@
   border: 0.1px solid black;
   outline: none;
   font-size: 17px;
+}
+
+/* show right box */
+.show_left {
+  display: block;
+  display: flex;
+  flex-direction: column;
+  background-color: #c5b6b6;
+  transform: translateX(-20px);
+}
+
+.hidden {
+  display: none;
 }
